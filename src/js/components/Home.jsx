@@ -28,7 +28,12 @@ const Home = () => {
 
 		try {
 			const response = await fetch(`https://playground.4geeks.com/todo/users/${user}`)
+			if (!response.ok ) { 
+				crearUsuario()
+				 return}
 			const data = await response.json()
+			console.log(data)
+
 			setListaTarea(data.todos)
 		} catch (error) {
 			console.log(error)
